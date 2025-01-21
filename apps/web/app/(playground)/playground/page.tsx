@@ -57,7 +57,7 @@ export default async function Playground() {
   }
 
   return (
-    <main className="mx-auto w-full max-w-[calc(36rem+40px)] px-5">
+    <main className="mx-auto w-full max-w-[768px] px-5">
       <div className="mt-6 flex items-center gap-1.5">
         <ApiConfiguration />
         <PreviewEmail />

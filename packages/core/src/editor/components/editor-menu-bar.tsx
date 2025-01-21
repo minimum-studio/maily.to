@@ -54,13 +54,6 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
         icon: UnderlineIcon,
       },
       {
-        name: 'strike',
-        command: () => editor.chain().focus().toggleStrike().run(),
-        isActive: () => editor.isActive('strike'),
-        group: 'mark',
-        icon: StrikethroughIcon,
-      },
-      {
         name: 'delete-line',
         command: () =>
           editor.chain().focus().selectParentNode().deleteSelection().run(),

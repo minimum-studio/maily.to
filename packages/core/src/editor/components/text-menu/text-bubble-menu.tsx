@@ -10,14 +10,11 @@ import {
   UnderlineIcon,
 } from 'lucide-react';
 import { BubbleMenuButton } from '../bubble-menu-button';
-import { ColorPicker } from '../ui/color-picker';
-import { BaseButton } from '../base-button';
 import { useTextMenuState } from './use-text-menu-state';
 import { isCustomNodeSelected } from '@/editor/utils/is-custom-node-selected';
 import { isTextSelected } from '@/editor/utils/is-text-selected';
 import { TooltipProvider } from '../ui/tooltip';
 import { LinkInputPopover } from '../ui/link-input-popover';
-import { Divider } from '../ui/divider';
 import { AlignmentSwitch } from '../alignment-switch';
 import { SVGIcon } from '../icons/grid-lines';
 
@@ -74,13 +71,6 @@ export function TextBubbleMenu(props: EditorBubbleMenuProps) {
       command: () => editor?.chain().focus().toggleStrike().run()!,
       icon: StrikethroughIcon,
       tooltip: 'Strikethrough',
-    },
-    {
-      name: 'code',
-      isActive: () => editor?.isActive('code')!,
-      command: () => editor?.chain().focus().toggleCode().run()!,
-      icon: CodeIcon,
-      tooltip: 'Code',
     },
   ];
 

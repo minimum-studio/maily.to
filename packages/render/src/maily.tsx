@@ -443,7 +443,7 @@ export class Maily {
             fontStyle="normal"
             fontWeight={400}
             webFont={{
-              url: 'https://fonts.cdnfonts.com/css/sf-pro-display',
+              url: 'https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYREGULAR.woff',
               format: 'woff2',
             }}
           />

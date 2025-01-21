@@ -72,6 +72,13 @@ export function TextBubbleMenu(props: EditorBubbleMenuProps) {
       icon: StrikethroughIcon,
       tooltip: 'Strikethrough',
     },
+    {
+      name: 'code',
+      isActive: () => editor?.isActive('code')!,
+      command: () => editor?.chain().focus().toggleCode().run()!,
+      icon: CodeIcon,
+      tooltip: 'Code',
+    },
   ];
 
   const bubbleMenuProps: EditorBubbleMenuProps = {

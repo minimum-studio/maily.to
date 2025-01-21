@@ -9,7 +9,6 @@ import {
   ItalicIcon,
   LinkIcon,
   SeparatorHorizontal,
-  StrikethroughIcon,
   UnderlineIcon,
 } from 'lucide-react';
 

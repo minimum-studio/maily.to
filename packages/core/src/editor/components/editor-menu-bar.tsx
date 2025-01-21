@@ -1,24 +1,24 @@
 import { useMemo } from 'react';
 import { Editor as EditorType } from '@tiptap/core';
 import {
-  AlignCenter,
-  AlignLeft,
-  AlignRight,
   BoldIcon,
-  EraserIcon,
+  CodeIcon,
   ItalicIcon,
-  LinkIcon,
-  SeparatorHorizontal,
+  List,
+  ListOrdered,
+  StrikethroughIcon,
   UnderlineIcon,
 } from 'lucide-react';
 
 import { EditorProps } from '@/editor';
-
 import { BubbleMenuButton } from './bubble-menu-button';
-import { BubbleMenuItem } from './text-menu/text-bubble-menu';
 
-interface EditorMenuItem extends BubbleMenuItem {
-  group: 'alignment' | 'image' | 'mark' | 'custom' | 'email';
+interface EditorMenuItem {
+  name: string;
+  isActive: () => boolean;
+  command: () => void;
+  group: string;
+  icon: any;
 }
 
 type EditorMenuBarProps = {
@@ -53,65 +53,32 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
         icon: UnderlineIcon,
       },
       {
-        name: 'delete-line',
-        command: () =>
-          editor.chain().focus().selectParentNode().deleteSelection().run(),
-        isActive: () => false,
+        name: 'strike',
+        command: () => editor.chain().focus().toggleStrike().run(),
+        isActive: () => editor.isActive('strike'),
         group: 'mark',
-        icon: EraserIcon,
+        icon: StrikethroughIcon,
       },
       {
-        name: 'divider',
-        command: () => editor.chain().focus().setHorizontalRule().run(),
-        isActive: () => editor.isActive('horizontalRule'),
-        group: 'custom',
-        icon: SeparatorHorizontal,
+        name: 'code',
+        command: () => editor.chain().focus().toggleCode().run(),
+        isActive: () => editor.isActive('code'),
+        group: 'mark',
+        icon: CodeIcon,
       },
       {
-        name: 'link',
-        command: () => {
-          const previousUrl = editor.getAttributes('link').href;
-          const url = window.prompt('URL', previousUrl);
-          // If the user cancels the prompt, we don't want to toggle the link
-          if (url === null) return;
-          // If the user deletes the URL entirely, we'll unlink the selected text
-          if (url === '') {
-            editor.chain().focus().extendMarkRange('link').unsetLink().run();
-            return;
-          }
-
-          // Otherwise, we set the link to the given URL
-          editor
-            .chain()
-            .focus()
-            .extendMarkRange('link')
-            .setLink({ href: url })
-            .run();
-        },
-        isActive: () => editor.isActive('link'),
-        group: 'custom',
-        icon: LinkIcon,
+        name: 'bullet-list',
+        command: () => editor.chain().focus().toggleBulletList().run(),
+        isActive: () => editor.isActive('bulletList'),
+        group: 'list',
+        icon: List,
       },
       {
-        name: 'left',
-        command: () => editor.chain().focus().setTextAlign('left').run(),
-        isActive: () => editor.isActive({ textAlign: 'left' }),
-        group: 'alignment',
-        icon: AlignLeft,
-      },
-      {
-        name: 'center',
-        command: () => editor.chain().focus().setTextAlign('center').run(),
-        isActive: () => editor.isActive({ textAlign: 'center' }),
-        group: 'alignment',
-        icon: AlignCenter,
-      },
-      {
-        name: 'right',
-        command: () => editor.chain().focus().setTextAlign('right').run(),
-        isActive: () => editor.isActive({ textAlign: 'right' }),
-        group: 'alignment',
-        icon: AlignRight,
+        name: 'ordered-list',
+        command: () => editor.chain().focus().toggleOrderedList().run(),
+        isActive: () => editor.isActive('orderedList'),
+        group: 'list',
+        icon: ListOrdered,
       },
     ],
     [editor]
@@ -136,18 +103,11 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
     <div
       className={`mly-flex mly-items-center mly-gap-3 ${config?.toolbarClassName}`}
     >
-      {groups.map((group, index) => (
-        <div
-          key={index}
-          className="mly-flex mly-items-center mly-gap-1 mly-rounded-md mly-border mly-bg-white mly-p-1"
-        >
-          {items
-            .filter((item) => item.group === group)
-            .map((item, index) => (
-              <BubbleMenuButton key={index} {...item} />
-            ))}
-        </div>
-      ))}
+      <div className="mly-flex mly-items-center mly-gap-1 mly-rounded-md mly-border mly-bg-white mly-p-1">
+        {items.map((item, index) => (
+          <BubbleMenuButton key={index} {...item} />
+        ))}
+      </div>
     </div>
   );
 };

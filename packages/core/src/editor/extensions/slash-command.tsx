@@ -11,6 +11,7 @@ import { ReactRenderer } from '@tiptap/react';
 import Suggestion, { SuggestionOptions } from '@tiptap/suggestion';
 import {
   FootprintsIcon,
+  Heading,
   Heading1,
   Heading2,
   Heading3,
@@ -81,39 +82,39 @@ const DEFAULT_SLASH_COMMANDS: SlashCommandItem[] = [
         .run();
     },
   },
+  // {
+  //   title: 'Heading 1',
+  //   description: 'Big section heading.',
+  //   searchTerms: ['title', 'big', 'large'],
+  //   icon: <Heading1 className="mly-h-4 mly-w-4" />,
+  //   command: ({ editor, range }: CommandProps) => {
+  //     editor
+  //       .chain()
+  //       .focus()
+  //       .deleteRange(range)
+  //       .setNode('heading', { level: 1 })
+  //       .run();
+  //   },
+  // },
+  // {
+  //   title: 'Heading 2',
+  //   description: 'Medium section heading.',
+  //   searchTerms: ['subtitle', 'medium'],
+  //   icon: <Heading2 className="mly-h-4 mly-w-4" />,
+  //   command: ({ editor, range }: CommandProps) => {
+  //     editor
+  //       .chain()
+  //       .focus()
+  //       .deleteRange(range)
+  //       .setNode('heading', { level: 2 })
+  //       .run();
+  //   },
+  // },
   {
-    title: 'Heading 1',
-    description: 'Big section heading.',
-    searchTerms: ['title', 'big', 'large'],
-    icon: <Heading1 className="mly-h-4 mly-w-4" />,
-    command: ({ editor, range }: CommandProps) => {
-      editor
-        .chain()
-        .focus()
-        .deleteRange(range)
-        .setNode('heading', { level: 1 })
-        .run();
-    },
-  },
-  {
-    title: 'Heading 2',
-    description: 'Medium section heading.',
-    searchTerms: ['subtitle', 'medium'],
-    icon: <Heading2 className="mly-h-4 mly-w-4" />,
-    command: ({ editor, range }: CommandProps) => {
-      editor
-        .chain()
-        .focus()
-        .deleteRange(range)
-        .setNode('heading', { level: 2 })
-        .run();
-    },
-  },
-  {
-    title: 'Heading 3',
-    description: 'Small section heading.',
+    title: 'Heading',
+    description: 'Add a heading.',
     searchTerms: ['subtitle', 'small'],
-    icon: <Heading3 className="mly-h-4 mly-w-4" />,
+    icon: <Heading className="mly-h-4 mly-w-4" />,
     command: ({ editor, range }: CommandProps) => {
       editor
         .chain()

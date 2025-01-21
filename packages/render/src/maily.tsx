@@ -1092,6 +1092,7 @@ export class Maily {
           borderRadius: '6px',
           fontFamily: CODE_FONT_FAMILY,
           fontWeight: 400,
+          fontSize: '14px',
           letterSpacing: 0,
         }}
       >

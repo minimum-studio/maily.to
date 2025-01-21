@@ -224,6 +224,11 @@
     height: 0;
   }
 
+  h3.is-editor-empty::before,
+  h3.is-empty::before {
+    content: 'Heading' !important;
+  }
+
   [data-type='columns'] {
     margin: 0;
     padding: 0;

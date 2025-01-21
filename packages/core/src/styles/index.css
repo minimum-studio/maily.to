@@ -177,6 +177,7 @@
 }
 
 .ProseMirror {
+  margin: auto;
   position: relative;
   word-wrap: break-word;
   white-space: pre-wrap;

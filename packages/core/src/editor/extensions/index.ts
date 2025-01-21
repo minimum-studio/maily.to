@@ -66,6 +66,7 @@ export function extensions(props: ExtensionsProps) {
       horizontalRule: false,
       dropcursor: false,
       document: false,
+      codeBlock: false,
     }),
     Underline,
     TiptapLogoExtension,

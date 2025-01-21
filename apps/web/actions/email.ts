@@ -10,7 +10,6 @@ import {
   MAILY_ENDPOINT,
   MAILY_PROVIDER,
 } from '@/utils/constants';
-import type { Database } from '@/types/database';
 import { UnreachableCaseError } from './error';
 import { createSupabaseServerClient } from '@/lib/supabase/server';
 
@@ -42,6 +41,11 @@ export async function previewEmailAction(formData: FormData) {
 
   const html = await render(content, {
     preview: previewText,
+    theme: {
+      fontSize: {
+        paragraph: '18px',
+      },
+    },
   });
 
   return {
@@ -125,6 +129,11 @@ export async function sendTestEmailAction(formData: FormData) {
 
   const html = await render(content, {
     preview: previewText,
+    theme: {
+      fontSize: {
+        paragraph: '18px',
+      },
+    },
   });
 
   const { provider, apiKey } = configResult.data;

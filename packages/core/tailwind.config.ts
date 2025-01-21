@@ -1,4 +1,3 @@
-// tailwind config is required for editor support
 import type { Config } from 'tailwindcss';
 import sharedConfig from 'tailwind-config/tailwind.config';
 
@@ -10,9 +9,18 @@ const config: Pick<Config, 'prefix' | 'presets' | 'corePlugins' | 'theme'> = {
   },
   theme: {
     extend: {
-      colors: {
-        'soft-gray': '#f4f5f6',
-        'midnight-gray': '#333333',
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': '#1e1e1e',
+            '--tw-prose-headings': '#1e1e1e',
+            '--tw-prose-bold': '#1e1e1e',
+            '--tw-prose-bullets': '#1e1e1e',
+            '--tw-prose-code': '#1e1e1e',
+            '--tw-prose-links': '#2563eb',
+            '--tw-prose-links-hover': '#1e40af',
+          },
+        },
       },
     },
   },

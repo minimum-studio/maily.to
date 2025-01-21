@@ -82,6 +82,7 @@ const logoSizes: Record<AllowedLogoSizes, string> = {
 export interface ThemeOptions {
   colors?: Partial<{
     heading: string;
+    link: string;
     paragraph: string;
     horizontal: string;
     footer: string;
@@ -161,21 +162,22 @@ const DEFAULT_RENDER_OPTIONS: RenderOptions = {
 
 const DEFAULT_THEME: ThemeOptions = {
   colors: {
-    heading: '#111827',
-    paragraph: '#374151',
-    horizontal: '#EAEAEA',
-    footer: '#64748B',
-    blockquoteBorder: '#D1D5DB',
-    codeBackground: '#EFEFEF',
-    codeText: '#111827',
-    linkCardTitle: '#111827',
-    linkCardDescription: '#6B7280',
-    linkCardBadgeText: '#111827',
-    linkCardBadgeBackground: '#FEF08A',
-    linkCardSubTitle: '#6B7280',
+    heading: '#1e1e1e',
+    paragraph: '#1e1e1e',
+    horizontal: '#e5e7eb',
+    footer: '#1e1e1e',
+    blockquoteBorder: '#d1d5db',
+    codeBackground: '#f8f8f8',
+    codeText: '#1e1e1e',
+    link: '#2563eb',
+    linkCardTitle: '#2563eb',
+    linkCardDescription: '#2563eb',
+    linkCardBadgeText: '#2563eb',
+    linkCardBadgeBackground: '#2563eb',
+    linkCardSubTitle: '#2563eb',
   },
   fontSize: {
-    paragraph: '15px',
+    paragraph: '18px',
     footer: {
       size: '14px',
       lineHeight: '24px',
@@ -704,7 +706,7 @@ export class Maily {
         style={{
           fontWeight: 500,
           textDecoration: 'underline',
-          color: this.config.theme?.colors?.heading,
+          color: this.config.theme?.colors?.link,
         }}
         target={target}
       >

@@ -2,11 +2,7 @@
 
 import { render } from '@maily-to/render';
 
-export async function renderEmail(
-  json: string,
-  previewText?: string,
-  paragraphSize?: string
-) {
+export async function renderEmail(json: string, previewText?: string) {
   if (!json) {
     throw new Error('JSON is required');
   }
@@ -15,7 +11,6 @@ export async function renderEmail(
 
   const html = await render(content, {
     preview: previewText,
-    theme: { fontSize: { paragraph: paragraphSize } },
   });
 
   return html;

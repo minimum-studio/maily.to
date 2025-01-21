@@ -41,11 +41,6 @@ export async function previewEmailAction(formData: FormData) {
 
   const html = await render(content, {
     preview: previewText,
-    theme: {
-      fontSize: {
-        paragraph: '18px',
-      },
-    },
   });
 
   return {

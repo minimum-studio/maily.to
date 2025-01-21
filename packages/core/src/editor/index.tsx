@@ -153,7 +153,6 @@ export function Editor(props: EditorProps) {
           <EditorContent editor={editor} />
           <SectionBubbleMenu editor={editor} appendTo={menuContainerRef} />
           <ColumnsBubbleMenu editor={editor} appendTo={menuContainerRef} />
-          <ContentMenu editor={editor} />
           <ForBubbleMenu editor={editor} appendTo={menuContainerRef} />
         </div>
       </div>

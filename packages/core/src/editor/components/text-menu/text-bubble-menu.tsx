@@ -180,33 +180,6 @@ export function TextBubbleMenu(props: EditorBubbleMenuProps) {
           }}
           tooltip="External URL"
         />
-
-        <Divider />
-
-        <ColorPicker
-          color={state.currentTextColor}
-          onColorChange={(color) => {
-            editor?.chain().setColor(color).run();
-          }}
-          tooltip="Text Color"
-        >
-          <BaseButton
-            variant="ghost"
-            size="sm"
-            type="button"
-            className="!mly-h-7 mly-w-7 mly-shrink-0 mly-p-0"
-          >
-            <div className="mly-flex mly-flex-col mly-items-center mly-justify-center mly-gap-[1px]">
-              <span className="mly-font-bolder mly-font-mono mly-text-xs mly-text-slate-700">
-                A
-              </span>
-              <div
-                className="mly-h-[2px] mly-w-3"
-                style={{ backgroundColor: state.currentTextColor }}
-              />
-            </div>
-          </BaseButton>
-        </ColorPicker>
       </TooltipProvider>
     </BubbleMenu>
   );

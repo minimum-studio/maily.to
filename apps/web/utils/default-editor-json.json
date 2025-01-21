@@ -2,98 +2,177 @@
   "type": "doc",
   "content": [
     {
-      "type": "logo",
-      "attrs": {
-        "src": "https://maily.to/brand/logo.png",
-        "alt": null,
-        "title": null,
-        "maily-component": "logo",
-        "size": "md",
-        "alignment": "left"
-      }
-    },
-    { "type": "spacer", "attrs": { "height": "xl" } },
-    {
       "type": "heading",
-      "attrs": { "textAlign": "left", "level": 2 },
-      "content": [
-        {
-          "type": "text",
-          "marks": [{ "type": "bold" }],
-          "text": "Discover Maily"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "attrs": { "textAlign": "left" },
-      "content": [
-        {
-          "type": "text",
-          "text": "Are you ready to transform your email communication? Introducing Maily, the powerful email editor that enables you to craft captivating emails effortlessly."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "attrs": { "textAlign": "left" },
-      "content": [
-        {
-          "type": "text",
-          "text": "Elevate your email communication with Maily! Click below to try it out:"
-        }
-      ]
-    },
-    {
-      "type": "button",
       "attrs": {
-        "text": "Try Maily Now →",
-        "url": "",
-        "alignment": "left",
-        "variant": "filled",
-        "borderRadius": "round",
-        "buttonColor": "#000000",
-        "textColor": "#ffffff"
-      }
-    },
-    { "type": "spacer", "attrs": { "height": "xl" } },
-    {
-      "type": "paragraph",
-      "attrs": { "textAlign": "left" },
+        "textAlign": "left",
+        "level": 3
+      },
       "content": [
         {
           "type": "text",
-          "text": "Join our vibrant community of users and developers on GitHub, where Maily is an "
-        },
-        {
-          "type": "text",
-          "marks": [
-            {
-              "type": "link",
-              "attrs": {
-                "href": "https://github.com/arikchakma/maily.to",
-                "target": "_blank",
-                "rel": "noopener noreferrer nofollow",
-                "class": null
-              }
-            },
-            { "type": "italic" }
-          ],
-          "text": "open-source"
-        },
-        {
-          "type": "text",
-          "text": " project. Together, we'll shape the future of email editing."
+          "text": "#1 - Hello, Rumicat"
         }
       ]
     },
     {
       "type": "paragraph",
-      "attrs": { "textAlign": "left" },
+      "attrs": {
+        "textAlign": "left"
+      },
       "content": [
-        { "type": "text", "text": "Regards," },
-        { "type": "hardBreak" },
-        { "type": "text", "text": "Arikko" }
+        {
+          "type": "text",
+          "text": "Rumicat is the simplest way to write an email newsletter."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Just add your subscribers, share your thoughts and hit send. That’s all."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "If you’re looking for:"
+        }
+      ]
+    },
+    {
+      "type": "bulletList",
+      "content": [
+        {
+          "type": "listItem",
+          "attrs": {
+            "color": null
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "textAlign": "left"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A/B testing features for your writing"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "attrs": {
+            "color": null
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "textAlign": "left"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Methods to monetize your friends"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "attrs": {
+            "color": null
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "textAlign": "left"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "AI robots to help you think"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "This is not the right thing for you."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "If you’re excited about sharing your unique perspective with the world, we think you'll love it."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Feel free to mess around with this email, or hit preview to see how it looks in your inbox."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Cheers,"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "The Rumicat team."
+        }
       ]
     }
   ]

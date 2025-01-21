@@ -2,19 +2,6 @@
   "type": "doc",
   "content": [
     {
-      "type": "heading",
-      "attrs": {
-        "textAlign": "left",
-        "level": 3
-      },
-      "content": [
-        {
-          "type": "text",
-          "text": "#1 - Hello, Rumicat"
-        }
-      ]
-    },
-    {
       "type": "paragraph",
       "attrs": {
         "textAlign": "left"

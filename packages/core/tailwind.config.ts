@@ -17,6 +17,7 @@ const config: Pick<Config, 'prefix' | 'presets' | 'corePlugins' | 'theme'> = {
             '--tw-prose-bold': '#1e1e1e',
             '--tw-prose-bullets': '#1e1e1e',
             '--tw-prose-code': '#1e1e1e',
+            '--tw-prose-counters': '#1e1e1e',
             '--tw-prose-links': '#2563eb',
             '--tw-prose-links-hover': '#1e40af',
           },

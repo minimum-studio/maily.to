@@ -220,21 +220,21 @@ const DEFAULT_SLASH_COMMANDS: SlashCommandItem[] = [
   //     editor.chain().focus().deleteRange(range).setShow().run();
   //   },
   // },
-  {
-    title: 'Spacer',
-    description:
-      'Add a spacer to email. Useful for adding space between sections.',
-    searchTerms: ['space', 'gap', 'divider'],
-    icon: <MoveVertical className="mly-h-4 mly-w-4" />,
-    command: ({ editor, range }: CommandProps) => {
-      editor
-        .chain()
-        .focus()
-        .deleteRange(range)
-        .setSpacer({ height: 'sm' })
-        .run();
-    },
-  },
+  // {
+  //   title: 'Spacer',
+  //   description:
+  //     'Add a spacer to email. Useful for adding space between sections.',
+  //   searchTerms: ['space', 'gap', 'divider'],
+  //   icon: <MoveVertical className="mly-h-4 mly-w-4" />,
+  //   command: ({ editor, range }: CommandProps) => {
+  //     editor
+  //       .chain()
+  //       .focus()
+  //       .deleteRange(range)
+  //       .setSpacer({ height: 'sm' })
+  //       .run();
+  //   },
+  // },
   // {
   //   title: 'Button',
   //   description: 'Add a call to action button to email.',
@@ -271,15 +271,15 @@ const DEFAULT_SLASH_COMMANDS: SlashCommandItem[] = [
   //     editor.chain().focus().deleteRange(range).toggleBlockquote().run();
   //   },
   // },
-  {
-    title: 'Footer',
-    description: 'Add a footer text to email.',
-    searchTerms: ['footer', 'text'],
-    icon: <FootprintsIcon className="mly-h-4 mly-w-4" />,
-    command: ({ editor, range }: CommandProps) => {
-      editor.chain().focus().deleteRange(range).setFooter().run();
-    },
-  },
+  // {
+  //   title: 'Footer',
+  //   description: 'Add a footer text to email.',
+  //   searchTerms: ['footer', 'text'],
+  //   icon: <FootprintsIcon className="mly-h-4 mly-w-4" />,
+  //   command: ({ editor, range }: CommandProps) => {
+  //     editor.chain().focus().deleteRange(range).setFooter().run();
+  //   },
+  // },
   // {
   //   title: 'Clear Line',
   //   description: 'Clear the current line.',

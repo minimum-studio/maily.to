@@ -478,7 +478,10 @@ export class Maily {
               width: '100%',
               marginLeft: 'auto',
               marginRight: 'auto',
-              padding: '0.5rem',
+              paddingLeft: '0.5rem',
+              paddingRight: '0.5rem',
+              paddingTop: '32px',
+              paddingBottom: '32px',
             }}
           >
             {jsxNodes}

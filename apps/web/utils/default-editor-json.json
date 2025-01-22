@@ -1,166 +1,353 @@
-{
-  "type": "doc",
-  "content": [
-    {
-      "type": "paragraph",
-      "attrs": {
-        "textAlign": "left"
-      },
-      "content": [
-        {
-          "type": "text",
-          "text": "Rumicat is the simplest way to write an email newsletter."
-        }
-      ]
+[
+  {
+    "type": "paragraph",
+    "attrs": {
+      "textAlign": "left"
     },
-    {
-      "type": "paragraph",
-      "attrs": {
-        "textAlign": "left"
-      },
-      "content": [
-        {
-          "type": "text",
-          "text": "Just add your subscribers, share your thoughts and hit send. That’s all."
-        }
-      ]
+    "content": [
+      {
+        "type": "text",
+        "text": "Rumicat is the simplest way to write an email newsletter."
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "attrs": {
+      "textAlign": "left"
     },
-    {
-      "type": "paragraph",
-      "attrs": {
-        "textAlign": "left"
-      },
-      "content": [
-        {
-          "type": "text",
-          "text": "If you’re looking for:"
-        }
-      ]
+    "content": [
+      {
+        "type": "text",
+        "text": "Just add your subscribers, share your thoughts and hit send. That's all."
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "attrs": {
+      "textAlign": "left"
     },
-    {
-      "type": "bulletList",
-      "content": [
-        {
-          "type": "listItem",
-          "attrs": {
-            "color": null
-          },
-          "content": [
-            {
-              "type": "paragraph",
-              "attrs": {
-                "textAlign": "left"
-              },
-              "content": [
-                {
-                  "type": "text",
-                  "text": "A/B testing features for your writing"
-                }
-              ]
-            }
-          ]
+    "content": [
+      {
+        "type": "text",
+        "text": "If you're looking for:"
+      }
+    ]
+  },
+  {
+    "type": "bulletList",
+    "content": [
+      {
+        "type": "listItem",
+        "attrs": {
+          "color": ""
         },
-        {
-          "type": "listItem",
-          "attrs": {
-            "color": null
-          },
-          "content": [
-            {
-              "type": "paragraph",
-              "attrs": {
-                "textAlign": "left"
-              },
-              "content": [
-                {
-                  "type": "text",
-                  "text": "Methods to monetize your friends"
-                }
-              ]
-            }
-          ]
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "left"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "A/B testing features for your writing"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "listItem",
+        "attrs": {
+          "color": ""
         },
-        {
-          "type": "listItem",
-          "attrs": {
-            "color": null
-          },
-          "content": [
-            {
-              "type": "paragraph",
-              "attrs": {
-                "textAlign": "left"
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "left"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Methods to monetize your friends"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "listItem",
+        "attrs": {
+          "color": ""
+        },
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "left"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "AI robots to help you think"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "attrs": {
+      "textAlign": "left"
+    },
+    "content": [
+      {
+        "type": "text",
+        "text": "This is not the right thing for you."
+      }
+    ]
+  },
+  {
+    "type": "horizontalRule"
+  },
+  {
+    "type": "heading",
+    "attrs": {
+      "textAlign": "left",
+      "level": 3
+    },
+    "content": [
+      {
+        "type": "text",
+        "text": "Why you'll love Rumicat"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "attrs": {
+      "textAlign": "left"
+    },
+    "content": [
+      {
+        "type": "text",
+        "text": "Rumicat supports:"
+      }
+    ]
+  },
+  {
+    "type": "orderedList",
+    "attrs": {
+      "start": 1
+    },
+    "content": [
+      {
+        "type": "listItem",
+        "attrs": {
+          "color": ""
+        },
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "left"
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Bold text"
               },
-              "content": [
-                {
-                  "type": "text",
-                  "text": "AI robots to help you think"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "attrs": {
-        "textAlign": "left"
+              {
+                "type": "text",
+                "text": " to emphasize your key points"
+              }
+            ]
+          }
+        ]
       },
-      "content": [
-        {
-          "type": "text",
-          "text": "This is not the right thing for you."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "attrs": {
-        "textAlign": "left"
+      {
+        "type": "listItem",
+        "attrs": {
+          "color": ""
+        },
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "left"
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "strike"
+                  }
+                ],
+                "text": "Strikethrough"
+              },
+              {
+                "type": "text",
+                "text": " to show changes or removed ideas"
+              }
+            ]
+          }
+        ]
       },
-      "content": [
-        {
-          "type": "text",
-          "text": "If you’re excited about sharing your unique perspective with the world, we think you'll love it."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "attrs": {
-        "textAlign": "left"
+      {
+        "type": "listItem",
+        "attrs": {
+          "color": ""
+        },
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "left"
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "code"
+                  }
+                ],
+                "text": "Inline code"
+              },
+              {
+                "type": "text",
+                "text": " for snippets or technical tips"
+              }
+            ]
+          }
+        ]
       },
-      "content": [
-        {
-          "type": "text",
-          "text": "Feel free to mess around with this email, or hit preview to see how it looks in your inbox."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "attrs": {
-        "textAlign": "left"
+      {
+        "type": "listItem",
+        "attrs": {
+          "color": ""
+        },
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "left"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Links to direct your readers, like "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "link",
+                    "attrs": {
+                      "href": "https://rumicat.com",
+                      "target": "_new",
+                      "rel": "noopener",
+                      "class": null
+                    }
+                  }
+                ],
+                "text": "Rumicat's website"
+              }
+            ]
+          }
+        ]
       },
-      "content": [
-        {
-          "type": "text",
-          "text": "Cheers,"
-        }
-      ]
+      {
+        "type": "listItem",
+        "attrs": {
+          "color": null
+        },
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "left"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "And even images"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "attrs": {
+      "textAlign": "left"
     },
-    {
-      "type": "paragraph",
-      "attrs": {
-        "textAlign": "left"
-      },
-      "content": [
-        {
-          "type": "text",
-          "text": "The Rumicat team."
-        }
-      ]
+    "content": [
+      {
+        "type": "text",
+        "text": "If you're excited about sharing your unique perspective with the world, we think you'll love it."
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "attrs": {
+      "textAlign": "left"
+    },
+    "content": [
+      {
+        "type": "text",
+        "text": "Feel free to mess around with this email, or hit preview to see how it looks in your inbox."
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "attrs": {
+      "textAlign": "left"
+    },
+    "content": [
+      {
+        "type": "text",
+        "text": "Cheers,"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "attrs": {
+      "textAlign": "left"
+    },
+    "content": [
+      {
+        "type": "text",
+        "text": "The Rumicat team."
+      }
+    ]
+  },
+  {
+    "type": "image",
+    "attrs": {
+      "src": "https://lingvistov.com/upload/wp-content/uploads/shop/2015/06/philosophical-cat-001.png",
+      "alt": null,
+      "title": null,
+      "width": 631,
+      "height": 235.23425692695216,
+      "alignment": "left",
+      "externalLink": null
     }
-  ]
-}
+  }
+]

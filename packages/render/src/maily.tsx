@@ -441,13 +441,9 @@ export class Maily {
         <Head>
           <Font
             fallbackFontFamily={['Georgia', 'sans-serif']}
-            fontFamily="SF Pro Display"
+            fontFamily="Georgia"
             fontStyle="normal"
             fontWeight={400}
-            webFont={{
-              url: 'https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYREGULAR.woff',
-              format: 'woff2',
-            }}
           />
           <style
             dangerouslySetInnerHTML={{

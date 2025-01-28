@@ -126,7 +126,7 @@ export async function sendTestEmailAction(formData: FormData) {
     preview: previewText,
     theme: {
       fontSize: {
-        paragraph: '18px',
+        paragraph: '16px',
       },
     },
   });

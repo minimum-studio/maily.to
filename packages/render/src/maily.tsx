@@ -177,7 +177,7 @@ const DEFAULT_THEME: ThemeOptions = {
     linkCardSubTitle: '#2563eb',
   },
   fontSize: {
-    paragraph: '18px',
+    paragraph: '16px',
     footer: {
       size: '14px',
       lineHeight: '24px',

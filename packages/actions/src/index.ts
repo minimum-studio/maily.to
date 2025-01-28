@@ -1,19 +1,15 @@
 'use server';
-
 import { render } from '@maily-to/render';
 
-export async function renderEmail(json: string, previewText?: string) {
+export async function renderEmail(
+  json: string,
+  options?: { preview?: string; plainText?: boolean }
+) {
   if (!json) {
     throw new Error('JSON is required');
   }
-
   const content = JSON.parse(json);
-
-  const html = await render(content, {
-    preview: previewText,
-  });
-
-  return html;
+  return render(content, options);
 }
 
 globalThis.renderEmail = renderEmail;

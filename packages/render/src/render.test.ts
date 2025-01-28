@@ -209,7 +209,7 @@ describe('render', () => {
         paragraph: 'rgb(0, 255, 0)',
       },
       fontSize: {
-        paragraph: '18px',
+        paragraph: '16x',
       },
     };
 
@@ -219,6 +219,6 @@ describe('render', () => {
 
     expect(result).toContain('color:rgb(255, 0, 0)');
     expect(result).toContain('color:rgb(0, 255, 0)');
-    expect(result).toContain('font-size:18px');
+    expect(result).toContain('font-size:16px');
   });
 });

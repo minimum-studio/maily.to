@@ -177,7 +177,7 @@ const DEFAULT_THEME: ThemeOptions = {
     linkCardSubTitle: '#2563eb',
   },
   fontSize: {
-    paragraph: '18px',
+    paragraph: '16px',
     footer: {
       size: '14px',
       lineHeight: '24px',
@@ -1175,7 +1175,7 @@ export class Maily {
               <Column>
                 <Text
                   style={{
-                    fontSize: '18px',
+                    fontSize: '16px',
                     fontWeight: 600,
                     color: this.config.theme?.colors?.linkCardTitle,
                     margin: '0px',

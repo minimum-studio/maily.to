@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useState } from 'react';
+import { useMemo, useEffect, useState, useCallback } from 'react';
 import { Editor as EditorType } from '@tiptap/core';
 import {
   BoldIcon,
@@ -8,8 +8,8 @@ import {
   ListOrdered,
   StrikethroughIcon,
   UnderlineIcon,
-  Link,
-  Unlink,
+  Link2,
+  Unlink2,
 } from 'lucide-react';
 
 import { EditorProps } from '@/editor';
@@ -32,14 +32,16 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
   const { editor, config } = props;
   const [isLinkActive, setIsLinkActive] = useState(false);
 
+  const updateLinkState = useCallback(() => {
+    setIsLinkActive(editor.isActive('link'));
+  }, [editor]);
+
   useEffect(() => {
-    const updateLinkState = () => {
-      setIsLinkActive(editor.isActive('link'));
-    };
+    if (!editor) return;
 
     editor.on('transaction', updateLinkState);
     return () => editor.off('transaction', updateLinkState);
-  }, [editor]);
+  }, [editor, updateLinkState]);
 
   const setLink = () => {
     const previousUrl = editor.getAttributes('link').href;
@@ -112,17 +114,28 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
       },
       {
         name: 'link',
-        command: () => {
-          if (isLinkActive) {
-            editor.chain().focus().extendMarkRange('link').unsetLink().run(); // Unset if active
-          } else {
-            setLink(); // Otherwise, add a link
-          }
-        },
+        command: setLink,
         isActive: () => isLinkActive,
         group: 'mark',
-        icon: isLinkActive ? Unlink : Link, // Swap icon dynamically
+        icon: Link2,
       },
+      ...(isLinkActive
+        ? [
+            {
+              name: 'unlink',
+              command: () =>
+                editor
+                  .chain()
+                  .focus()
+                  .extendMarkRange('link')
+                  .unsetLink()
+                  .run(),
+              isActive: () => false,
+              group: 'mark',
+              icon: Unlink2,
+            },
+          ]
+        : []),
     ],
     [editor, isLinkActive]
   );
@@ -132,20 +145,18 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
   }
 
   return (
-    <div
-      className={`mly-flex mly-items-center mly-gap-3 ${config?.toolbarClassName}`}
-    >
-      <div className="mly-flex mly-items-center mly-gap-1 mly-rounded-md mly-border mly-bg-white mly-p-1">
-        {items.map((item, index) => (
-          <BubbleMenuButton
-            key={index}
-            {...item}
-            className={
-              item.isActive() ? 'mly-text-blue-500' : 'mly-text-gray-500'
-            }
-          />
-        ))}
-      </div>
+    <div className="mly-flex mly-w-fit mly-items-center mly-gap-1 mly-p-1">
+      {items.map((item, index) => (
+        <BubbleMenuButton
+          key={index}
+          {...item}
+          className={`transition-all duration-100 ease-in mly-flex mly-h-8 mly-w-8 mly-items-center mly-justify-center mly-rounded-lg ${item.isActive() ? 'mly-border mly-border-[#D0D5DD] mly-bg-white' : 'mly-border-transparent mly-bg-transparent'} `}
+          iconClassName={`
+          mly-h-4 mly-w-4 mly-stroke-[2.7] transition-all duration-100 ease-in
+          ${item.isActive() ? 'mly-text-[#155EEF] mly-stroke-[#155EEF]' : 'mly-text-[#98A2B3] mly-stroke-[#98A2B3]'}
+        `}
+        />
+      ))}
     </div>
   );
 };

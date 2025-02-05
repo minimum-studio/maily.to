@@ -84,17 +84,6 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
     [editor]
   );
 
-  const groups = useMemo(
-    () =>
-      items.reduce((acc, item) => {
-        if (!acc.includes(item.group)) {
-          acc.push(item.group);
-        }
-        return acc;
-      }, [] as string[]),
-    [items]
-  );
-
   if (!editor) {
     return null;
   }
@@ -105,7 +94,13 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
     >
       <div className="mly-flex mly-items-center mly-gap-1 mly-rounded-md mly-border mly-bg-white mly-p-1">
         {items.map((item, index) => (
-          <BubbleMenuButton key={index} {...item} />
+          <BubbleMenuButton
+            key={index}
+            {...item}
+            className={
+              item.isActive() ? 'mly-text-blue-500' : 'mly-text-gray-500'
+            }
+          />
         ))}
       </div>
     </div>

@@ -29,7 +29,7 @@ type EditorMenuBarProps = {
 };
 
 export const EditorMenuBar = (props: EditorMenuBarProps) => {
-  const { editor, config } = props;
+  const { editor } = props;
   const [isLinkActive, setIsLinkActive] = useState(false);
 
   const updateLinkState = useCallback(() => {
@@ -40,7 +40,9 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
     if (!editor) return;
 
     editor.on('transaction', updateLinkState);
-    return () => editor.off('transaction', updateLinkState);
+    return () => {
+      editor.off('transaction', updateLinkState);
+    };
   }, [editor, updateLinkState]);
 
   const setLink = () => {

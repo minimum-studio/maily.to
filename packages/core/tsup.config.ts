@@ -3,7 +3,7 @@ import { defineConfig, Options } from 'tsup';
 
 // eslint-disable-next-line import/no-default-export
 export default defineConfig((options: Options) => ({
-  entry: ['src/index.ts'],
+  entry: ['src/index.ts', 'src/editor/components/editor-menu-bar.tsx'],
   format: ['esm', 'cjs'],
   banner: {
     js: "'use client'",

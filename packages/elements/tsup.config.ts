@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ['src/index.ts'],
+  entry: ['src/index.ts', 'src/editor/components/editor-menu-bar.tsx'],
   format: ['iife'], // Browser-compatible IIFE format
   globalName: 'MT', // Expose as global `MT`
   minify: true, // Minify for production

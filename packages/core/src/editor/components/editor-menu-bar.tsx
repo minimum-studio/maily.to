@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useEffect, useState } from 'react';
 import { Editor as EditorType } from '@tiptap/core';
 import {
   BoldIcon,
@@ -8,6 +8,8 @@ import {
   ListOrdered,
   StrikethroughIcon,
   UnderlineIcon,
+  Link,
+  Unlink,
 } from 'lucide-react';
 
 import { EditorProps } from '@/editor';
@@ -28,6 +30,34 @@ type EditorMenuBarProps = {
 
 export const EditorMenuBar = (props: EditorMenuBarProps) => {
   const { editor, config } = props;
+  const [isLinkActive, setIsLinkActive] = useState(false);
+
+  useEffect(() => {
+    const updateLinkState = () => {
+      setIsLinkActive(editor.isActive('link'));
+    };
+
+    editor.on('transaction', updateLinkState);
+    return () => editor.off('transaction', updateLinkState);
+  }, [editor]);
+
+  const setLink = () => {
+    const previousUrl = editor.getAttributes('link').href;
+    const url = window.prompt('Enter URL:', previousUrl || '');
+
+    if (url === null) return;
+
+    if (url === '') {
+      editor.chain().focus().extendMarkRange('link').unsetLink().run();
+    } else {
+      editor
+        .chain()
+        .focus()
+        .extendMarkRange('link')
+        .setLink({ href: url })
+        .run();
+    }
+  };
 
   const items: EditorMenuItem[] = useMemo(
     () => [
@@ -80,8 +110,21 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
         group: 'list',
         icon: ListOrdered,
       },
+      {
+        name: 'link',
+        command: () => {
+          if (isLinkActive) {
+            editor.chain().focus().extendMarkRange('link').unsetLink().run(); // Unset if active
+          } else {
+            setLink(); // Otherwise, add a link
+          }
+        },
+        isActive: () => isLinkActive,
+        group: 'mark',
+        icon: isLinkActive ? Unlink : Link, // Swap icon dynamically
+      },
     ],
-    [editor]
+    [editor, isLinkActive]
   );
 
   if (!editor) {

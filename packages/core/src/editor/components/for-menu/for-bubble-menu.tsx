@@ -6,7 +6,6 @@ import { EditorBubbleMenuProps } from '../text-menu/text-bubble-menu';
 import { isTextSelected } from '@/editor/utils/is-text-selected';
 import { TooltipProvider } from '../ui/tooltip';
 import { useForState } from './use-for-state';
-import { Divider } from '../ui/divider';
 import { Braces } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { cn } from '@/editor/utils/classname';

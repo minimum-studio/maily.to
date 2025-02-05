@@ -46,6 +46,13 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
   }, [editor, updateLinkState]);
 
   const setLink = () => {
+    const { state } = editor;
+    const { from, to } = state.selection;
+
+    if (from === to) {
+      return;
+    }
+
     const previousUrl = editor.getAttributes('link').href;
     const url = window.prompt('Enter URL:', previousUrl || '');
 

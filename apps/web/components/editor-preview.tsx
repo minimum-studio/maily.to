@@ -152,7 +152,7 @@ export function EditorPreview(props: EditorPreviewProps) {
         ) : null}
         <Editor
           config={{
-            hasMenuBar: true,
+            hasMenuBar: false,
             wrapClassName: 'editor-wrap',
             bodyClassName: '!mt-0 !border-0 !p-0',
             contentClassName: 'editor-content',

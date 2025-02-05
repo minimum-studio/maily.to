@@ -15,6 +15,7 @@ import {
 } from './provider';
 import { cn } from './utils/classname';
 import { SectionBubbleMenu } from './components/section-menu/section-bubble-menu';
+import { TextBubbleMenu } from './components/text-menu/text-bubble-menu';
 import { useRef } from 'react';
 import { ColumnsBubbleMenu } from './components/column-menu/columns-bubble-menu';
 import { ForBubbleMenu } from './components/for-menu/for-bubble-menu';

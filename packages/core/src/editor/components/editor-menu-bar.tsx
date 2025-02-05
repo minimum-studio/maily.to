@@ -10,6 +10,7 @@ import {
   UnderlineIcon,
   Link2,
   Unlink2,
+  Heading,
 } from 'lucide-react';
 
 import { EditorProps } from '@/editor';
@@ -107,6 +108,20 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
         group: 'mark',
         icon: CodeIcon,
       },
+      {
+        name: 'heading',
+        command: () => {
+          if (editor.isActive('heading', { level: 3 })) {
+            editor.chain().focus().setNode('paragraph').run();
+          } else {
+            editor.chain().focus().setNode('heading', { level: 3 }).run();
+          }
+        },
+        isActive: () => editor.isActive('heading', { level: 3 }),
+        group: 'block',
+        icon: Heading,
+      },
+
       {
         name: 'bullet-list',
         command: () => editor.chain().focus().toggleBulletList().run(),

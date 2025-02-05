@@ -9,18 +9,7 @@ import {
 import { Editor, Extension, Range } from '@tiptap/core';
 import { ReactRenderer } from '@tiptap/react';
 import Suggestion, { SuggestionOptions } from '@tiptap/suggestion';
-import {
-  FootprintsIcon,
-  Heading,
-  Heading1,
-  Heading2,
-  Heading3,
-  ImageIcon,
-  List,
-  ListOrdered,
-  MoveVertical,
-  Text,
-} from 'lucide-react';
+import { Heading, ImageIcon, List, ListOrdered, Text } from 'lucide-react';
 import tippy, { GetReferenceClientRect } from 'tippy.js';
 
 import { cn } from '@/editor/utils/classname';
@@ -82,34 +71,6 @@ const DEFAULT_SLASH_COMMANDS: SlashCommandItem[] = [
         .run();
     },
   },
-  // {
-  //   title: 'Heading 1',
-  //   description: 'Big section heading.',
-  //   searchTerms: ['title', 'big', 'large'],
-  //   icon: <Heading1 className="mly-h-4 mly-w-4" />,
-  //   command: ({ editor, range }: CommandProps) => {
-  //     editor
-  //       .chain()
-  //       .focus()
-  //       .deleteRange(range)
-  //       .setNode('heading', { level: 1 })
-  //       .run();
-  //   },
-  // },
-  // {
-  //   title: 'Heading 2',
-  //   description: 'Medium section heading.',
-  //   searchTerms: ['subtitle', 'medium'],
-  //   icon: <Heading2 className="mly-h-4 mly-w-4" />,
-  //   command: ({ editor, range }: CommandProps) => {
-  //     editor
-  //       .chain()
-  //       .focus()
-  //       .deleteRange(range)
-  //       .setNode('heading', { level: 2 })
-  //       .run();
-  //   },
-  // },
   {
     title: 'Heading',
     description: 'Add a heading.',
@@ -158,138 +119,6 @@ const DEFAULT_SLASH_COMMANDS: SlashCommandItem[] = [
       editor.chain().focus().setImage({ src: imageUrl }).run();
     },
   },
-  // {
-  //   title: 'Logo',
-  //   description: 'Add your brand logo',
-  //   searchTerms: ['image', 'logo'],
-  //   icon: <ImageIcon className="mly-h-4 mly-w-4" />,
-  //   command: ({ editor, range }: CommandProps) => {
-  //     const logoUrl = prompt('Logo URL: ') || '';
-
-  //     if (!logoUrl) {
-  //       return;
-  //     }
-  //     editor.chain().focus().deleteRange(range).run();
-  //     editor.chain().focus().setLogoImage({ src: logoUrl }).run();
-  //   },
-  // },
-  // {
-  //   title: 'Columns',
-  //   description: 'Add columns to email.',
-  //   searchTerms: ['layout', 'columns'],
-  //   icon: <ColumnsIcon className="mly-h-4 mly-w-4" />,
-  //   shouldBeHidden: (editor) => {
-  //     return editor.isActive('columns');
-  //   },
-  //   command: ({ editor, range }: CommandProps) => {
-  //     editor
-  //       .chain()
-  //       .focus()
-  //       .deleteRange(range)
-  //       .setColumns()
-  //       .focus(editor.state.selection.head - 2)
-  //       .run();
-  //   },
-  // },
-  // {
-  //   title: 'Section',
-  //   description: 'Add a section to email.',
-  //   searchTerms: ['layout', 'section'],
-  //   icon: <SectionIcon className="mly-h-4 mly-w-4" />,
-  //   shouldBeHidden: (editor) => {
-  //     return editor.isActive('columns');
-  //   },
-  //   command: ({ editor, range }: CommandProps) => {
-  //     editor.chain().focus().deleteRange(range).setSection().run();
-  //   },
-  // },
-  // {
-  //   title: 'For',
-  //   description: 'Loop over an array of items.',
-  //   searchTerms: ['for', 'loop'],
-  //   icon: <Repeat2 className="mly-h-4 mly-w-4" />,
-  //   command: ({ editor, range }: CommandProps) => {
-  //     editor.chain().focus().deleteRange(range).setFor().run();
-  //   },
-  // },
-  // {
-  //   title: 'Show',
-  //   description: 'Show when a condition is true.',
-  //   searchTerms: ['show', 'if'],
-  //   icon: <EyeIcon className="mly-h-4 mly-w-4" />,
-  //   command: ({ editor, range }: CommandProps) => {
-  //     editor.chain().focus().deleteRange(range).setShow().run();
-  //   },
-  // },
-  // {
-  //   title: 'Spacer',
-  //   description:
-  //     'Add a spacer to email. Useful for adding space between sections.',
-  //   searchTerms: ['space', 'gap', 'divider'],
-  //   icon: <MoveVertical className="mly-h-4 mly-w-4" />,
-  //   command: ({ editor, range }: CommandProps) => {
-  //     editor
-  //       .chain()
-  //       .focus()
-  //       .deleteRange(range)
-  //       .setSpacer({ height: 'sm' })
-  //       .run();
-  //   },
-  // },
-  // {
-  //   title: 'Button',
-  //   description: 'Add a call to action button to email.',
-  //   searchTerms: ['link', 'button', 'cta'],
-  //   icon: <MousePointer className="mly-h-4 mly-w-4" />,
-  //   command: ({ editor, range }: CommandProps) => {
-  //     editor.chain().focus().deleteRange(range).setButton().run();
-  //   },
-  // },
-  // {
-  //   title: 'Link Card',
-  //   description: 'Add a link card to email.',
-  //   searchTerms: ['link', 'button', 'image'],
-  //   icon: <ArrowUpRightSquare className="mly-h-4 mly-w-4" />,
-  //   command: ({ editor, range }: CommandProps) => {
-  //     editor.chain().focus().deleteRange(range).setLinkCard().run();
-  //   },
-  // },
-  // {
-  //   title: 'Hard Break',
-  //   description: 'Add a break between lines.',
-  //   searchTerms: ['break', 'line'],
-  //   icon: <DivideIcon className="mly-h-4 mly-w-4" />,
-  //   command: ({ editor, range }: CommandProps) => {
-  //     editor.chain().focus().deleteRange(range).setHardBreak().run();
-  //   },
-  // },
-  // {
-  //   title: 'Blockquote',
-  //   description: 'Add blockquote.',
-  //   searchTerms: ['quote', 'blockquote'],
-  //   icon: <TextQuote className="mly-h-4 mly-w-4" />,
-  //   command: ({ editor, range }: CommandProps) => {
-  //     editor.chain().focus().deleteRange(range).toggleBlockquote().run();
-  //   },
-  // },
-  // {
-  //   title: 'Footer',
-  //   description: 'Add a footer text to email.',
-  //   searchTerms: ['footer', 'text'],
-  //   icon: <FootprintsIcon className="mly-h-4 mly-w-4" />,
-  //   command: ({ editor, range }: CommandProps) => {
-  //     editor.chain().focus().deleteRange(range).setFooter().run();
-  //   },
-  // },
-  // {
-  //   title: 'Clear Line',
-  //   description: 'Clear the current line.',
-  //   searchTerms: ['clear', 'line'],
-  //   icon: <EraserIcon className="mly-h-4 mly-w-4" />,
-  //   command: ({ editor, range }: CommandProps) => {
-  //     editor.chain().focus().selectParentNode().deleteSelection().run();
-  //   },
-  // },
 ];
 
 export const updateScrollView = (container: HTMLElement, item: HTMLElement) => {

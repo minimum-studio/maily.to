@@ -19,6 +19,16 @@
         "types": "./dist/index.d.ts",
         "default": "./dist/index.js"
       }
+    },
+    "./editor-menu-bar": {
+      "import": {
+        "types": "./dist/editor/components/editor-menu-bar.d.ts",
+        "default": "./dist/editor/components/editor-menu-bar.mjs"
+      },
+      "require": {
+        "types": "./dist/editor/components/editor-menu-bar.d.ts",
+        "default": "./dist/editor/components/editor-menu-bar.js"
+      }
     }
   },
   "scripts": {

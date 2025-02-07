@@ -2,7 +2,6 @@
 
 import { Editor as TiptapEditor, Extension, FocusPosition } from '@tiptap/core';
 import { EditorContent, JSONContent, useEditor } from '@tiptap/react';
-
 import { EditorMenuBar } from './components/editor-menu-bar';
 import { ImageBubbleMenu } from './components/image-menu/image-bubble-menu';
 import { SpacerBubbleMenu } from './components/spacer-bubble-menu';
@@ -25,7 +24,7 @@ async function uploadImage(file: File): Promise<string> {
     // @ts-ignore
     return window.MT.uploadImage(file);
   }
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => resolve(URL.createObjectURL(file)), 1000);
   });
 }
@@ -95,9 +94,8 @@ export function Editor(props: EditorProps) {
     };
   }
 
-  const menuContainerRef = useRef(null);
-
-  let editorInstance: TiptapEditor | null = null;
+  const menuContainerRef = useRef<HTMLDivElement>(null);
+  const editorInstanceRef = useRef<TiptapEditor | null>(null);
 
   const editor = useEditor({
     editorProps: {
@@ -119,6 +117,7 @@ export function Editor(props: EditorProps) {
           if (!files || files.length === 0) {
             return false;
           }
+
           const imageFiles = Array.from(files).filter((file) =>
             file.type.startsWith('image/')
           );
@@ -126,11 +125,26 @@ export function Editor(props: EditorProps) {
             return false;
           }
           event.preventDefault();
+
+          const coords = { left: event.clientX, top: event.clientY };
+          const dropPos = _view.posAtCoords(coords)?.pos;
+
           imageFiles.forEach((file) => {
             uploadImage(file)
               .then((url: string) => {
-                if (editorInstance) {
-                  editorInstance.chain().focus().setImage({ src: url }).run();
+                if (editorInstanceRef.current) {
+                  if (dropPos !== null && dropPos !== undefined) {
+                    editorInstanceRef.current
+                      .chain()
+                      .focus()
+                      .setTextSelection(dropPos)
+                      .run();
+                  }
+                  editorInstanceRef.current
+                    .chain()
+                    .focus()
+                    .setImage({ src: url })
+                    .run();
                 }
               })
               .catch((err) => {
@@ -143,7 +157,7 @@ export function Editor(props: EditorProps) {
     },
     immediatelyRender,
     onCreate: ({ editor: createdEditor }) => {
-      editorInstance = createdEditor;
+      editorInstanceRef.current = createdEditor;
       onCreate?.(createdEditor);
     },
     onUpdate: ({ editor }) => {

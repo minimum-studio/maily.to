@@ -103,22 +103,6 @@ const DEFAULT_SLASH_COMMANDS: SlashCommandItem[] = [
       editor.chain().focus().deleteRange(range).toggleOrderedList().run();
     },
   },
-  {
-    title: 'Image',
-    description: 'Full width image',
-    searchTerms: ['image'],
-    icon: <ImageIcon className="mly-h-4 mly-w-4" />,
-    command: ({ editor, range }: CommandProps) => {
-      const imageUrl = prompt('Image URL: ') || '';
-
-      if (!imageUrl) {
-        return;
-      }
-
-      editor.chain().focus().deleteRange(range).run();
-      editor.chain().focus().setImage({ src: imageUrl }).run();
-    },
-  },
 ];
 
 export const updateScrollView = (container: HTMLElement, item: HTMLElement) => {

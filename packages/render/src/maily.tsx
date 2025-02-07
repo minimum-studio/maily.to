@@ -980,17 +980,17 @@ export class Maily {
     );
 
     const wi = width === 'auto' ? '100%' : `${Number(width)}px`;
-    const hei = height === 'auto' ? '100%' : `${Number(height)}px`;
+    // Remove forced maxHeight by not calculating hei:
+    // const hei = height === 'auto' ? '100%' : `${Number(height)}px`;
 
     const mainImage = (
       <Img
         alt={alt || title || 'Image'}
         src={src}
         style={{
-          height: '100%',
           width: '100%',
+          height: 'auto', // Set height to auto to preserve aspect ratio
           maxWidth: wi,
-          maxHeight: hei,
           outline: 'none',
           border: 'none',
           textDecoration: 'none',

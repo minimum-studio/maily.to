@@ -11,6 +11,7 @@ import {
   Link2,
   Unlink2,
   Heading,
+  Image as ImageIcon,
 } from 'lucide-react';
 
 import { EditorProps } from '@/editor';
@@ -39,7 +40,6 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
 
   useEffect(() => {
     if (!editor) return;
-
     editor.on('transaction', updateLinkState);
     return () => {
       editor.off('transaction', updateLinkState);
@@ -49,16 +49,12 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
   const setLink = () => {
     const { state } = editor;
     const { from, to } = state.selection;
-
     if (from === to) {
       return;
     }
-
     const previousUrl = editor.getAttributes('link').href;
     const url = window.prompt('Enter URL:', previousUrl || '');
-
     if (url === null) return;
-
     if (url === '') {
       editor.chain().focus().extendMarkRange('link').unsetLink().run();
     } else {
@@ -69,6 +65,37 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
         .setLink({ href: url })
         .run();
     }
+  };
+
+  const imageMenuItem: EditorMenuItem = {
+    name: 'image',
+    command: async () => {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.onchange = async () => {
+        if (input.files && input.files[0]) {
+          const file = input.files[0];
+          try {
+            const url =
+              //@ts-ignore
+              window.MT && typeof window.MT.uploadImage === 'function'
+                ? //@ts-ignore
+                  await window.MT.uploadImage(file)
+                : await new Promise<string>((resolve) =>
+                    setTimeout(() => resolve(URL.createObjectURL(file)), 1000)
+                  );
+            editor.chain().focus().setImage({ src: url }).run();
+          } catch (error) {
+            console.error('Image upload failed', error);
+          }
+        }
+      };
+      input.click();
+    },
+    isActive: () => false,
+    group: 'insert',
+    icon: ImageIcon,
   };
 
   const items: EditorMenuItem[] = useMemo(
@@ -121,7 +148,6 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
         group: 'block',
         icon: Heading,
       },
-
       {
         name: 'bullet-list',
         command: () => editor.chain().focus().toggleBulletList().run(),
@@ -160,6 +186,7 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
             },
           ]
         : []),
+      imageMenuItem,
     ],
     [editor, isLinkActive]
   );
@@ -174,11 +201,15 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
         <BubbleMenuButton
           key={index}
           {...item}
-          className={`transition-all duration-100 ease-in mly-flex mly-h-8 mly-w-8 mly-items-center mly-justify-center mly-rounded-lg ${item.isActive() ? 'mly-border mly-border-[#D0D5DD] mly-bg-white' : 'mly-border-transparent mly-bg-transparent'} `}
+          className={`transition-all duration-100 ease-in mly-flex mly-h-8 mly-w-8 mly-items-center mly-justify-center mly-rounded-lg ${
+            item.isActive()
+              ? 'mly-border mly-border-[#D0D5DD] mly-bg-white'
+              : 'mly-border-transparent mly-bg-transparent'
+          }`}
           iconClassName={`
-          mly-h-4 mly-w-4 mly-stroke-[2.7] transition-all duration-100 ease-in
-          ${item.isActive() ? 'mly-text-[#155EEF] mly-stroke-[#155EEF]' : 'mly-text-[#98A2B3] mly-stroke-[#98A2B3]'}
-        `}
+            mly-h-4 mly-w-4 mly-stroke-[2.7] transition-all duration-100 ease-in
+            ${item.isActive() ? 'mly-text-[#155EEF] mly-stroke-[#155EEF]' : 'mly-text-[#98A2B3] mly-stroke-[#98A2B3]'}
+          `}
         />
       ))}
     </div>

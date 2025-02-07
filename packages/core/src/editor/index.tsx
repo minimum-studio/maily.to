@@ -19,6 +19,17 @@ import { useRef } from 'react';
 import { ColumnsBubbleMenu } from './components/column-menu/columns-bubble-menu';
 import { ForBubbleMenu } from './components/for-menu/for-bubble-menu';
 
+async function uploadImage(file: File): Promise<string> {
+  // @ts-ignore
+  if (window.MT && typeof window.MT.uploadImage === 'function') {
+    // @ts-ignore
+    return window.MT.uploadImage(file);
+  }
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(URL.createObjectURL(file)), 1000);
+  });
+}
+
 type ParitialMailContextType = Partial<MailyContextType>;
 
 export type EditorProps = {
@@ -85,6 +96,9 @@ export function Editor(props: EditorProps) {
   }
 
   const menuContainerRef = useRef(null);
+
+  let editorInstance: TiptapEditor | null = null;
+
   const editor = useEditor({
     editorProps: {
       attributes: {
@@ -93,7 +107,6 @@ export function Editor(props: EditorProps) {
       },
       handleDOMEvents: {
         keydown: (_view, event) => {
-          // prevent default event listeners from firing when slash command is active
           if (['ArrowUp', 'ArrowDown', 'Enter'].includes(event.key)) {
             const slashCommand = document.querySelector('#slash-command');
             if (slashCommand) {
@@ -101,11 +114,37 @@ export function Editor(props: EditorProps) {
             }
           }
         },
+        drop: (_view, event) => {
+          const files = event.dataTransfer?.files;
+          if (!files || files.length === 0) {
+            return false;
+          }
+          const imageFiles = Array.from(files).filter((file) =>
+            file.type.startsWith('image/')
+          );
+          if (imageFiles.length === 0) {
+            return false;
+          }
+          event.preventDefault();
+          imageFiles.forEach((file) => {
+            uploadImage(file)
+              .then((url: string) => {
+                if (editorInstance) {
+                  editorInstance.chain().focus().setImage({ src: url }).run();
+                }
+              })
+              .catch((err) => {
+                console.error('Image upload failed:', err);
+              });
+          });
+          return true;
+        },
       },
     },
     immediatelyRender,
-    onCreate: ({ editor }) => {
-      onCreate?.(editor);
+    onCreate: ({ editor: createdEditor }) => {
+      editorInstance = createdEditor;
+      onCreate?.(createdEditor);
     },
     onUpdate: ({ editor }) => {
       onUpdate?.(editor);

@@ -159,6 +159,7 @@ export function EditorPreview(props: EditorPreviewProps) {
             toolbarClassName: 'flex-wrap !items-start',
             spellCheck: false,
             autofocus: false,
+            editable: false,
             ...defaultConfig,
           }}
           contentJson={defaultContent}

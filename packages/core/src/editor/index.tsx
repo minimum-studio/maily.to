@@ -46,6 +46,7 @@ export type EditorProps = {
     bodyClassName?: string;
     autofocus?: FocusPosition;
     immediatelyRender?: boolean;
+    editable?: boolean;
   };
 } & ParitialMailContextType;
 
@@ -59,6 +60,7 @@ export function Editor(props: EditorProps) {
       spellCheck = false,
       autofocus = 'end',
       immediatelyRender = false,
+      editable = true,
     } = {},
     onCreate,
     onUpdate,
@@ -174,6 +176,7 @@ export function Editor(props: EditorProps) {
     ],
     content: formattedContent,
     autofocus,
+    editable,
   });
 
   if (!editor) {

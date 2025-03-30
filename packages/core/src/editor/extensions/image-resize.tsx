@@ -12,7 +12,7 @@ const MIN_WIDTH = 20;
 const MAX_WIDTH = 600;
 
 function ResizableImageTemplate(props: NodeViewProps) {
-  const { node, updateAttributes, selected } = props;
+  const { node, updateAttributes, selected, editor } = props;
 
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -98,7 +98,7 @@ function ResizableImageTemplate(props: NodeViewProps) {
   return (
     <NodeViewWrapper
       as="div"
-      draggable
+      draggable={editor?.isEditable}
       data-drag-handle
       style={{
         width: `${width}px`,
@@ -121,11 +121,11 @@ function ResizableImageTemplate(props: NodeViewProps) {
         ref={imgRef}
         style={{
           ...resizingStyle,
-          cursor: 'default',
+          cursor: editor?.isEditable ? 'default' : 'inherit',
           marginBottom: 0,
         }}
       />
-      {selected && (
+      {selected && editor?.isEditable && (
         <>
           {/* Don't use a simple border as it pushes other content around. */}
           {[

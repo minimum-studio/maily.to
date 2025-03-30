@@ -30,6 +30,7 @@ import { ShowExtension } from '../nodes/show/show';
 import { ButtonExtension } from '../nodes/button/button';
 import { VariableExtension } from '../nodes/variable/variable';
 import { getVariableSuggestions } from '../nodes/variable/variable-suggestions';
+import { DisableNodeSelectionExtension } from './disable-node-selection';
 
 type ExtensionsProps = Partial<MailyContextType> & {};
 
@@ -111,14 +112,14 @@ export function extensions(props: ExtensionsProps) {
       suggestion: getPlayloadValueSuggestions([], payloadValueSuggestionChar),
     }),
     ShowExtension,
-    Dropcursor.configure({
-      color: '#555',
-      width: 3,
-      class: 'ProseMirror-dropcursor',
-    }),
     ButtonExtension,
     VariableExtension.configure({
       suggestion: getVariableSuggestions(variables, variableSuggestionChar),
     }),
+    Dropcursor.configure({
+      width: 2,
+      color: '#ddd',
+    }),
+    DisableNodeSelectionExtension,
   ];
 }

@@ -114,6 +114,13 @@ export function Editor(props: EditorProps) {
             }
           }
         },
+        click: (_view, event) => {
+          if (!editable && event.target instanceof HTMLImageElement) {
+            event.preventDefault();
+            return true;
+          }
+          return false;
+        },
         drop: (_view, event) => {
           const files = event.dataTransfer?.files;
           if (!files || files.length === 0) {

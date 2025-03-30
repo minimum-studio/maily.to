@@ -51,10 +51,6 @@ export function SectionBubbleMenu(props: EditorBubbleMenuProps) {
     ...props,
     ...(appendTo ? { appendTo: appendTo.current } : {}),
     shouldShow: ({ editor }) => {
-      if (!editor.isEditable) {
-        return false;
-      }
-
       if (isTextSelected(editor)) {
         return false;
       }
@@ -240,7 +236,7 @@ export function SectionBubbleMenu(props: EditorBubbleMenuProps) {
           <>
             <Divider />
             <Popover>
-              <PopoverTrigger className="hover:mly-bg-soft-gray data-[state=open]:mly-bg-soft-gray mly-flex mly-items-center mly-gap-1 mly-rounded-md mly-px-1.5 mly-text-sm">
+              <PopoverTrigger className="mly-flex mly-items-center mly-gap-1 mly-rounded-md mly-px-1.5 mly-text-sm hover:mly-bg-soft-gray data-[state=open]:mly-bg-soft-gray">
                 Column
                 <ChevronUp className="mly-h-3 mly-w-3" />
               </PopoverTrigger>

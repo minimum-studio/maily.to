@@ -29,10 +29,6 @@ export function ForBubbleMenu(props: EditorBubbleMenuProps) {
     ...props,
     ...(appendTo ? { appendTo: appendTo.current } : {}),
     shouldShow: ({ editor }) => {
-      if (!editor.isEditable) {
-        return false;
-      }
-
       if (isTextSelected(editor)) {
         return false;
       }
@@ -72,7 +68,7 @@ export function ForBubbleMenu(props: EditorBubbleMenuProps) {
         {!isUpdatingKey && (
           <button
             className={cn(
-              'hover:mly-bg-soft-gray mly-flex mly-h-7 mly-min-w-28 mly-items-center mly-gap-1.5 mly-rounded-md mly-border mly-px-2 mly-font-mono mly-text-sm',
+              'mly-flex mly-h-7 mly-min-w-28 mly-items-center mly-gap-1.5 mly-rounded-md mly-border mly-px-2 mly-font-mono mly-text-sm hover:mly-bg-soft-gray',
               !isValidEachKey &&
                 'mly-border-rose-400 mly-bg-rose-50 mly-text-rose-600 hover:mly-bg-rose-100'
             )}
@@ -113,10 +109,10 @@ export function ForBubbleMenu(props: EditorBubbleMenuProps) {
                 ref={inputRef}
                 type="text"
                 placeholder="e.g. items"
-                className="mly-text-midnight-gray hover:mly-bg-soft-gray focus:mly-bg-soft-gray mly-h-7 mly-w-40 mly-rounded-md mly-px-2 mly-pr-6 mly-text-sm focus:mly-outline-none"
+                className="mly-h-7 mly-w-40 mly-rounded-md mly-px-2 mly-pr-6 mly-text-sm mly-text-midnight-gray hover:mly-bg-soft-gray focus:mly-bg-soft-gray focus:mly-outline-none"
               />
               <div className="mly-absolute mly-inset-y-0 mly-right-1 mly-flex mly-items-center">
-                <Braces className="mly-text-midnight-gray mly-h-3 mly-w-3 mly-stroke-[2.5]" />
+                <Braces className="mly-h-3 mly-w-3 mly-stroke-[2.5] mly-text-midnight-gray" />
               </div>
             </label>
           </form>
